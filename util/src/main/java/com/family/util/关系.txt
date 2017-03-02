@@ -1,0 +1,55 @@
+// 测试关系
+		// 关注
+		paramMap.put("followingUid", "37902321");
+		System.out.println("关注:"
+				+ HttpClientUtil.sendHttpPostRequest(
+						"http://localhost:8080/uic-consumer/follow/add",
+						paramMap));
+
+		// 获取用户关注和粉丝总数
+		paramMap.put("uid", "1");
+		System.out.println("获取用户关注和粉丝总数:"
+				+ HttpClientUtil.sendHttpPostRequest(
+						"http://localhost:8080/uic-consumer/follow/get",
+						paramMap));
+
+		// 取消关注
+		paramMap.put("followingUid", "12");
+		System.out.println("取消关注:"
+				+ HttpClientUtil.sendHttpPostRequest(
+						"http://localhost:8080/uic-consumer/follow/cancel",
+						paramMap));
+
+
+
+		// 获取某人人关注的用户列表
+		System.out
+				.println("获取某人关注的用户列表:"
+						+ HttpClientUtil
+								.sendHttpPostRequest(
+										"http://localhost:8080/uic-consumer/follow/getFollowingList",
+										paramMap));
+		
+		
+		// 获取某人的粉丝用户列表
+		System.out.println("获取某人的粉丝用户列表:"
+				+ HttpClientUtil.sendHttpPostRequest(
+						"http://localhost:8080/uic-consumer/follow/getFansList",
+						paramMap));
+		// 获取我的黑名单用户列表
+		System.out.println("获取我的黑名单用户列表:"
+				+ HttpClientUtil.sendHttpPostRequest(
+						"http://localhost:8080/uic-consumer/black/getList",
+						paramMap));
+		// 拉黑
+		paramMap.put("blackUid", "40");
+		System.out.println("拉黑:"
+				+ HttpClientUtil.sendHttpPostRequest(
+						"http://localhost:8080/uic-consumer/black/add",
+						paramMap));
+		// 取消 拉黑
+		paramMap.put("blackUid", "40");
+		System.out.println("取消拉黑:"
+				+ HttpClientUtil.sendHttpPostRequest(
+						"http://localhost:8080/uic-consumer/black/cancel",
+						paramMap));

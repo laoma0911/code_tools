@@ -1,0 +1,41 @@
+// 查询直播信息
+		paramMap.put("broadcastId", "1");
+		paramMap.put("lastId", "0");
+		paramMap.put("token", "37902791#c2acb4c8a0fd57f95a270e612f4f0cff");
+		paramMap.put("sign", "8716c4a2c7a47ac40e4686bc01a2e4cd");
+		// System.out.println(HttpClientUtil.sendHttpPostRequest(
+		// "http://localhost:8080/broadcast-consumer/broadcast/quit",
+		// paramMap));
+//		 System.out.println(HttpClientUtil.sendHttpPostRequest(
+//		 "http://localhost:8080/broadcast-consumer/broadcast/info/get",
+//		 paramMap));
+		// 发送信息
+//		for (int i = 0; i < 10000; i++) {
+//			paramMap.put("messageContent", "直播一起来happy大家好不好发个信息就知道 知道的打" + i);
+//			Random random=new Random();
+//			System.out
+//					.println(HttpClientUtil
+//							.sendHttpPostRequest(
+//									"http://localhost:8080/broadcast-consumer/broadcast/msg/send",
+//									paramMap));
+//		}
+		// paramMap.put("messageContent", "测试数据发送下1113");
+		// paramMap.put("messageType", "3");
+		// paramMap.put("repliedMessageId", "");
+		// System.out.println(HttpClientUtil.sendHttpPostRequest(
+		// "http://localhost:8080/broadcast-consumer/broadcast/msg/send",
+		// paramMap));
+		// Map<String, File> fileParamMap=new HashMap<String, File>();
+		// fileParamMap.put("img", new
+		// File("/home/wuzl/下载/c9487270574c9eff3c3f099a654d6e8a.jpg"));
+		// System.out.println(HttpClientUtil.sendHttpPostRequestHaveFile("http://localhost:8080/broadcast-consumer/broadcast/msg/send",paramMap,fileParamMap));
+		// 垃取直播聊天记录
+//		 paramMap.put("isDesc", "1");
+//		 paramMap.put("lastId", "52147");
+		 System.out.println(HttpClientUtil.sendHttpPostRequest(
+		 "http://localhost:8080/broadcast-consumer/broadcast/msg/list",
+		 paramMap));
+		// 垃取直播专辑聊天记录
+		// System.out.println(HttpClientUtil.sendHttpPostRequest(
+		// "http://localhost:8080/broadcast-consumer/broadcast/msg/specialist/list",
+		// paramMap));

@@ -1,0 +1,158 @@
+		// 禁言
+		// paramMap.put("token", "51502#addd");
+		// paramMap.put("device", "3567872e6c674043a7d0ed69b75fbcb5");
+		// paramMap.put("device", "abc");
+		// paramMap.put("device", "abcd");
+		// 正常token
+		// paramMap.put("token", "37893482#addd");
+		// 测试黑名单
+		// System.out.println(HttpClientUtil.sendHttpPostRequest("http://localhost:8080/uic-consumer/topic/post",paramMap));
+		// 获取扩展信息
+//		 System.out.println(HttpClientUtil.sendHttpPostRequest("http://localhost:8080/uic-consumer/user/getinfo",paramMap));
+        //修改扩展信息
+paramMap.put("age", "22");
+		paramMap.put("period", "99");
+		paramMap.put("cycle", "33");
+		paramMap.put("menarche", "55");
+		paramMap.put("last_period", "66");
+		paramMap.put("recent_symptom", "nimaaa0");
+		paramMap.put("recent_symptom_user", "asdfsadfsafsafd0");
+		Map<String, Object> ex = new HashMap();
+		ex.put("user_password_init", "8121218");
+		ex.put("keywords", "头晕你妹");
+		paramMap.put("extra_info", JSON.toJSON(ex).toString());
+		System.out
+				.println(HttpClientUtil.sendHttpPostRequest(
+						"http://localhost:8080/uic-consumer/user/updateinfo",
+						paramMap));
+		// 获取某个用户个人页面等级信息，统计个人页面访问次数
+		// paramMap.put("uid", "1");
+//		 System.out.println(HttpClientUtil.sendHttpPostRequest("http://localhost:8080/uic-consumer/user/getlvinfo",paramMap));
+		// 获取自己个人页面等级信息，统计个人页面访问次数
+		// System.out.println(HttpClientUtil.sendHttpPostRequest("http://localhost:8080/uic-consumer/user/getlvinfomy",paramMap));
+		// 给某人送花
+		// paramMap.put("uid", "37890606");
+		// System.out.println(HttpClientUtil.sendHttpPostRequest("http://localhost:8080/uic-consumer/user/flower",paramMap));
+		//发现验证短信
+		paramMap.put("mobile", "18611203393");
+		System.out
+				.println(HttpClientUtil.sendHttpPostRequest(
+						"http://localhost:8080/uic-consumer/user/sendbindingverify",
+						paramMap));
+		//确认验证码
+	    paramMap.put("code", "2455");
+		System.out
+		.println(HttpClientUtil.sendHttpPostRequest(
+				"http://localhost:8080/uic-consumer/user/verify",
+				paramMap));
+		// 获取个人邮件信息
+		// System.out.println(HttpClientUtil.sendHttpPostRequest("http://localhost:8080/uic-consumer/user/getemail",paramMap));
+		// 发送绑定邮件验证
+		// paramMap.put("p", "123456");
+		// paramMap.put("email", "wuziliang18@126.com");
+		// System.out.println(HttpClientUtil.sendHttpPostRequest("http://localhost:8080/uic-consumer/user/setemail",paramMap));
+		// 获取邮件信息
+		// System.out.println(HttpClientUtil.sendHttpPostRequest("http://localhost:8080/uic-consumer/user/getemail_v2",paramMap));
+		// 重发验证邮件
+		// paramMap.put("uid", "37890606");
+		// System.out.println(HttpClientUtil.sendHttpPostRequest("http://localhost:8080/uic-consumer/user/resendbindemail",paramMap));
+		// 获取用户的绑定手机信息
+		// paramMap.put("uid", "37889848");
+		// System.out.println(HttpClientUtil.sendHttpPostRequest("http://localhost:8080/uic-consumer/user/getusermobile",paramMap));
+		// ###管理###############
+		// // 查询封禁用户列表
+		// paramMap = new HashMap();
+		// System.out.println(HttpClientUtil.sendHttpPostRequest(
+		// "http://localhost:8080/uic-consumer/admin/banuser/list",
+		// paramMap));
+		// // 添加封禁用户
+		// paramMap.put("uids", "37889848");
+		// paramMap.put("remark", "这个号看着不爽");
+		// paramMap.put("period", "0");
+		// System.out.println(HttpClientUtil.sendHttpPostRequest(
+		// "http://localhost:8080/uic-consumer/admin/banuser/add",
+		// paramMap));
+		// // 解禁用户封禁
+		// // paramMap.put("uid", "37889848");
+		// // System.out.println(HttpClientUtil.sendHttpPostRequest(
+		// // "http://localhost:8080/uic-consumer/admin/banuser/delete",
+		// // paramMap));
+		// // 查询封禁用户列表
+		// paramMap.put("uid", "37889848");
+		// System.out.println(HttpClientUtil.sendHttpPostRequest(
+		// "http://localhost:8080/uic-consumer/admin/banuser/deluidanddevice",
+		// paramMap));
+		// // 查询用户封禁日志列表
+		// paramMap = new HashMap();
+		// paramMap.put("Q_uid_L_EQ", "37889848");
+		// paramMap.put("start", "10");
+		// paramMap.put("limit", "10");
+		// System.out.println(HttpClientUtil.sendHttpPostRequest(
+		// "http://localhost:8080/uic-consumer/admin/banuserlog/list",
+		// paramMap));
+		// // 查询设备封禁日志列表
+		// paramMap = new HashMap();
+		// paramMap.put("searchAll", "true");
+		// paramMap.put("start", "10");
+		// paramMap.put("limit", "10");
+		// System.out.println(HttpClientUtil.sendHttpPostRequest(
+		// "http://localhost:8080/uic-consumer/admin/bandevicelog/list",
+		// paramMap));
+		// // 查询设备封禁列表
+		// paramMap = new HashMap();
+		// System.out.println(HttpClientUtil.sendHttpPostRequest(
+		// "http://localhost:8080/uic-consumer/admin/bandevicelist",
+		// paramMap));
+		// // 查询设备封禁列表
+		// paramMap = new HashMap();
+		// System.out.println(HttpClientUtil.sendHttpPostRequest(
+		// "http://localhost:8080/uic-consumer/admin/bandevice/list",
+		// paramMap));
+		// // 设备封禁
+		// paramMap = new HashMap();
+		// paramMap.put("device", "25aec0e95eb49bfceb292ac36447dd2c");
+		// paramMap.put("remark", "这个手机看着不爽");
+		// paramMap.put("period", "0");
+		// System.out.println(HttpClientUtil.sendHttpPostRequest(
+		// "http://localhost:8080/uic-consumer/admin/bandevice/add",
+		// paramMap));
+		// // 解禁设备封禁
+		// paramMap = new HashMap();
+		// paramMap.put("device", "23dce7dbeed7f997029998090e16e577");
+		// paramMap.put("remark", "这个手机看着不爽");
+		// paramMap.put("period", "0");
+		// System.out.println(HttpClientUtil.sendHttpPostRequest(
+		// "http://localhost:8080/uic-consumer/admin/bandevice/delete",
+		// paramMap));
+		// // 查询昵称修改日志列表
+		// paramMap = new HashMap();
+		// paramMap.put("start", "0");
+		// paramMap.put("limit", "10");
+		// paramMap.put("sortby", "id");
+		// paramMap.put("sort", "desc");
+		// paramMap.put("Q_newNick_S_EQ", "啊啊啊1");
+		// System.out.println(HttpClientUtil.sendHttpPostRequest(
+		// "http://localhost:8080/uic-consumer/admin/nickupdateloglist",
+		// paramMap));
+//		// 查询密码修改日志列表
+//		paramMap = new HashMap();
+//		paramMap.put("start", "10");
+//		paramMap.put("limit", "10");
+//		paramMap.put("sortby", "id");
+//		paramMap.put("sort", "desc");
+//		paramMap.put("Q_password_S_EQ", "123123");
+//		System.out.println(HttpClientUtil.sendHttpPostRequest(
+//				"http://localhost:8080/uic-consumer/admin/passwordupdateloglist",
+//				paramMap));
+		// 查询密码错误日志列表
+//		paramMap = new HashMap();
+//		System.out.println(HttpClientUtil.sendHttpPostRequest(
+//				"http://localhost:8080/uic-consumer/admin/passworderrorlist",
+//				paramMap));
+//		System.out.println(HttpClientUtil.sendHttpPostRequest(
+//				"http://localhost:8080/uic-consumer/adminlog/adminloglist",
+//				paramMap));
+		//查询多个用户信息
+//		paramMap.put("uids", "1,40,50,3000001");
+//		 System.out.println(HttpClientUtil.sendHttpPostRequest("http://localhost:8080/uic-consumer/user/findUsersByUids",paramMap));
+	

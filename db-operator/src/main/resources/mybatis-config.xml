@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="ColumnBean" type="com.family.tools.db.operator.bean.ColumnBean"/>
+	</typeAliases>
+	<mappers>
+		<!-- 通用sql -->
+		<mapper resource="mybatis_config/sql.xml"/>
+		<!-- mysql数据查询 -->
+		<mapper resource="mybatis_config/mysql_db.xml"/>
+  	</mappers>
+</configuration>

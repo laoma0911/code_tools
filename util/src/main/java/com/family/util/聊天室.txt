@@ -1,0 +1,8 @@
+paramMap.put("refuse", "1");
+		paramMap.put("groupId", "9");
+		paramMap.put("conversationId", "27000031");
+		paramMap.put("message", "11接着我发了个消息回复自己");
+		paramMap.put("repliedUid", "1");
+		paramMap.put("repliedId", "914502568");
+		System.out.println(HttpClientUtil.sendHttpPostRequest("http://localhost:8080/forum-consumer/group/chat/send",paramMap));
+//		System.out.println(HttpClientUtil.sendHttpPostRequest("http://localhost:8080/forum-consumer/group/chat/msg/refuse",paramMap));

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"  
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">  
+<!-- 通用sql查询 -->
+<mapper namespace="com.family.tools.db.operator.sql">
+	<select id="selectList" parameterType="string" resultType="map">  
+       ${_parameter}
+    </select>
+    <insert id="insert" parameterType="string" >  
+    	${_parameter}
+    </insert>
+    <delete id="delete" parameterType="string">
+    	${_parameter}
+    </delete>
+    <select id="selectOne" parameterType="string" resultType="map">
+    	${_parameter}
+    </select>
+    <update id="update"  parameterType="string">
+    	${_parameter}
+    </update>
+</mapper>

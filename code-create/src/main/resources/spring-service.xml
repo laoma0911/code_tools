@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       ">
+	<!-- bean -->
+	<bean id="beanCodeCreate" class="com.family.tools.code.create.service.daocreate.BeanCodeCreate">
+		<property name="mysqlDbOperator" ref="mysqlDbOperator"></property>
+	</bean>
+	<!-- dao -->
+	<bean id="mybatisDaoCodeCreate" class="com.family.tools.code.create.service.daocreate.MybatisDaoCodeCreate">
+		<property name="preCodeOperator" ref="beanCodeCreate"></property>
+	</bean>
+	<bean id="daoSpringXmlUpdate" class="com.family.tools.code.create.service.daocreate.DaoSpringXmlUpdate">
+		<property name="nextCodeOperator" ref="mybatisXmlCreate"></property>
+	</bean>
+	<bean id="mybatisXmlCreate" class="com.family.tools.code.create.service.daocreate.MybatisXmlCodeCreate">
+		<property name="mysqlDbOperator" ref="mysqlDbOperator"></property>
+		<property name="nextCodeOperator" ref="maybatisConfXmlUpdate"></property>
+	</bean>
+	<bean id="maybatisConfXmlUpdate" class="com.family.tools.code.create.service.daocreate.MaybatisConfXmlUpdate">
+	</bean>
+	<!-- dao使用这个bean就可以 -->
+	<bean id="mybatisDaoImplCodeCreate"
+		class="com.family.tools.code.create.service.daocreate.MybatisDaoImplCodeCreate">
+		<property name="preCodeOperator" ref="mybatisDaoCodeCreate"></property>
+		<property name="nextCodeOperator" ref="daoSpringXmlUpdate"></property>
+	</bean>
+	<!-- service -->
+	<bean id="serviceCodeCreate" class="com.family.tools.code.create.service.servicecreate.ServiceCodeCreate">
+		<property name="mysqlDbOperator" ref="mysqlDbOperator"></property>
+	</bean>
+	<bean id="serviceSpringXmlUpdate" class="com.family.tools.code.create.service.servicecreate.ServiceSpringXmlUpdate">
+	</bean>
+	<!-- service使用这个bean就可以 -->
+	<bean id="serviceImplCodeCreate" class="com.family.tools.code.create.service.servicecreate.ServiceImplCodeCreate">
+		<property name="preCodeOperator" ref="serviceCodeCreate"></property>
+		<property name="nextCodeOperator" ref="serviceSpringXmlUpdate"></property>
+	</bean>
+	
+	<bean id="dubboSpringXmlUpdate" class="com.family.tools.code.create.service.servicecreate.ServiceDubboXmlUpdate">
+		
+	</bean>
+</beans>

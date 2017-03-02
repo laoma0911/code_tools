@@ -1,0 +1,60 @@
+//删除普通删除
+paramMap.put("reply_id", "23856");
+		System.out.println("删除回复:"+HttpClientUtil.sendHttpPostRequest(
+				 "http://localhost:8080/forum-consumer/group/my/delreply",
+				 paramMap));
+				 
+//组长删除回复
+		paramMap.put("reply_id", "23859");
+		paramMap.put("is_op", "1");
+		paramMap.put("reason", "asdfsa撒旦法");
+		System.out.println("组长删除回复:"+HttpClientUtil.sendHttpPostRequest(
+				 "http://localhost:8080/forum-consumer/group/admin/delreply",
+				 paramMap));
+//删除话题
+		paramMap.put("topic_id", "8313085");
+		System.out.println("组长删除回复:"+HttpClientUtil.sendHttpPostRequest(
+				 "http://localhost:8080/forum-consumer/group/my/delmytopic",
+				 paramMap));
+//组长删除话题
+		paramMap.put("is_op", "1");
+		paramMap.put("reason", "asdfsa撒旦法");
+		paramMap.put("topic_id", "8313088");
+		System.out.println("组长删除回复:"+HttpClientUtil.sendHttpPostRequest(
+				 "http://localhost:8080/forum-consumer/group/admin/deltopic",
+				 paramMap));
+// 查询主题及回复
+		paramMap.put("topic_id", "8312325");//有喜欢的回复
+//		paramMap.put("topic_id", "8312740");//图文混排
+		// paramMap.put("reply_id", "");
+		// paramMap.put("last_id", "");
+		// paramMap.put("lastupdate", "");
+//		 paramMap.put("order", "1");
+		System.out
+				.println("查询主题及回复:"
+						+ HttpClientUtil
+								.sendHttpPostRequest(
+										"http://localhost:8080/forum-consumer/group/topic/getwithextra",
+										paramMap));
+// 查询主题及回复
+//		paramMap.put("topic_id", "8312325");
+		paramMap.put("topic_id", "8312740");//图文混排
+//		paramMap.put("topic_id", "8313113");//秘密向
+		// paramMap.put("reply_id", "");
+//		 paramMap.put("last_id", "1427528409");
+//		 paramMap.put("lastupdate", "15918");
+//		 paramMap.put("order", "1");
+		System.out
+				.println("查询主题及回复:"
+						+ HttpClientUtil
+								.sendHttpPostRequest(
+										"http://localhost:8080/forum-consumer/group/topic/get",
+										paramMap));			
+// 查询主题
+		paramMap.put("topic_id", "8313317");
+		System.out
+				.println("查询主题:"
+						+ HttpClientUtil
+								.sendHttpPostRequest(
+										"http://localhost:8080/forum-consumer/group/topic/detail",
+										paramMap));							

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- dao层的具体配置需要引入spring-dao-base-config.xml 所有dao要继承baseDao -->
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+       ">
+	<import resource="spring-dao-base-config.xml" />
+	<bean id="genericDao" abstract="true" class="com.family.tools.db.operator.base.GenericDaoImpl">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	<!-- 通用sql -->
+	<bean id="publichSql" class="com.family.tools.db.operator.dao.PublichSqlImpl" parent="genericDao" />
+	<!-- DB工具类 -->
+	<bean class="com.family.tools.db.operator.supports.DBUtil">
+		<property name="publichSql" ref="publichSql" />
+	</bean>
+	<!-- mysql的db操作 -->
+	<bean id="mysqlDbOperator" class="com.family.tools.db.operator.dao.MySqlDbOperatorImpl" parent="genericDao"></bean>
+</beans>

@@ -1,0 +1,1 @@
+代码及配置文件自动生成 描述：映射数据库自动生成model，service，dao及mybatis配置

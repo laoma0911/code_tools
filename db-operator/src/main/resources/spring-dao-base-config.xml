@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- dao层的基本配置包含数据源 以及与具体数据实现层的结合 与实际业务无关 -->
+<beans xmlns="http://www.springframework.org/schema/beans"   
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+       xsi:schemaLocation="http://www.springframework.org/schema/beans     
+           http://www.springframework.org/schema/beans/spring-beans-3.1.xsd" >
+<!-- 	<bean id='dataSourcePropertyConfigurer' class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value='classpath:datasource.properties'></property>	
+		fileEncoding加上编码格式否则乱码
+		<property name="fileEncoding" value="UTF-8"></property>
+	</bean> -->
+	<!-- 配置mybatis -->
+	<bean id="sqlSessionFactory"
+	    class="org.mybatis.spring.SqlSessionFactoryBean" >
+	    <!-- 1、指定数据源 -->
+	    <property name="dataSource" ref="dynamicDataSource"/>
+	    <!-- 2、指定配置文件 -->
+	    <property name="configLocation" value="classpath:mybatis-config.xml"/>
+	</bean>
+	<!-- baseDao 用于mybatis的session注入所有dao继承 -->
+	<bean id="baseDao" abstract="true">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	<!-- 动态数据源 -->
+	<bean id="dynamicDataSource" class="com.family.tools.db.operator.supports.DynamicDataSource">  
+		<property name="targetDataSources">
+			<!-- 此处最好指定一个默认数据源 否则启动会报错 但不影响应用  -->
+			<map>	
+				<!-- <entry key="default" value-ref="dataSource"/> -->
+			</map>
+		</property>
+	</bean>
+</beans>
